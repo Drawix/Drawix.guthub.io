@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time is Money</title>
+    <style>
+        /* --- GLOBAL & THEME --- */
+        * {
+            box-sizing: border-box; /* Ensures padding doesn't break layout */
+        }
+
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --text-main: #e0e0e0; 
+            --text-dim: #777;
+            --accent-green: #00ff88; 
+            --accent-gold: #ffd700;
+            --border-color: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            /* Matrix Grid Background */
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding-bottom: 120px; /* Space for HUD */
+        }
+
+        /* --- COMPACT CALCULATOR CARD --- */
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); 
+            position: relative;
+            margin-top: 20px;
+            overflow: hidden; 
+        }
+
+        /* Top Neon Line */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-gold));
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- INPUTS --- */
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        input, select {
+            width: 100%; /* Fallback */
+            flex: 1;     /* Smart sizing */
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.15);
+        }
+
+        /* --- ADD BUTTON --- */
+        button.add-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent-green), #008f4c);
+            color: #000; 
+            font-size: 1.1rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+
+        button.add-btn:active {
+            transform: scale(0.97);
+        }
+
+        .divider {
+            border-bottom: 1px dashed #333;
+            margin-bottom: 20px;
+        }
+
+        /* --- LIST ITEMS --- */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #161616;
+            border-right: 4px solid var(--accent-gold); 
+            margin-bottom: 10px;
+            padding: 12px
+      
